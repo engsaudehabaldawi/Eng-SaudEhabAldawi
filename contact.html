@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Eng. Saudehabaldawi</title>
+    <style>
+        /* Shared Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            /* Base Theme: Sapphire Night (Matches the other pages) */
+            --bg-color: #0d1321;       
+            --surface-color: #172033;   
+            --text-primary: #f0f4f8;    
+            --text-secondary: #94a3b8;  
+            
+            /* Accent Color: Emerald Green */
+            --accent-start: #059669;    /* Deep Emerald */
+            --accent-end: #10b981;      /* Bright Mint/Neon Green */
+            --accent-gradient: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+            --surface-border: #2a364f;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--surface-color);
+            border-bottom: 1px solid var(--surface-border);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo a {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-decoration: none;
+            font-weight: bold;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav .links a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav .links a:hover, nav .links a.active {
+            color: var(--accent-end);
+        }
+
+        /* --- Contact Layout --- */
+        .contact-wrapper {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 5%;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        /* Hero Image */
+        .contact-hero-img {
+            width: 100%;
+            max-width: 600px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            border: 2px solid var(--surface-border);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        /* Briefing Text */
+        .contact-wrapper h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .briefing {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 3rem;
+            max-width: 700px;
+        }
+
+        .highlight {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* --- Contact Buttons --- */
+        .button-container {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            width: 100%;
+            flex-wrap: wrap;
+        }
+
+        .contact-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+            transition: transform 0.3s, box-shadow 0.3s;
+            width: 280px;
+        }
+
+        .contact-btn:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Specific Button Colors */
+        .email-btn {
+            background: linear-gradient(135deg, #3b82f6, #2563eb); /* Professional Blue */
+            box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .email-btn:hover {
+            box-shadow: 0 15px 25px rgba(37, 99, 235, 0.5);
+        }
+
+        .wa-btn {
+            background: linear-gradient(135deg, #25D366, #128C7E); /* WhatsApp Green */
+            box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);
+        }
+
+        .wa-btn:hover {
+            box-shadow: 0 15px 25px rgba(37, 211, 102, 0.5);
+        }
+        /* --- Written Contact Info Section --- */
+        .direct-contact-info {
+            width: 100%;
+            max-width: 500px;
+            padding-top: 2.5rem;
+            border-top: 1px solid var(--surface-border);
+            text-align: left;
+            margin: 0 auto;
+        }
+
+        .direct-contact-info p {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .direct-contact-info strong {
+            color: var(--accent-end);
+            min-width: 80px; 
+        }
+
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; gap: 1rem; }
+            nav .links a { margin-left: 0; margin: 0 0.5rem; }
+            .button-container { flex-direction: column; align-items: center; }
+            .contact-btn { width: 100%; max-width: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><a href="index.html">Eng. Saudehabaldawi</a></div>
+        <div class="links">
+            <a href="about.html">About</a>
+            <a href="projects.html">Projects</a>
+            <a href="contact.html" class="active">Contact</a>
+        </div>
+    </nav>
+
+    <main class="contact-wrapper">
+        
+        <!-- Reusing the Contact Image from the main page -->
+        <img src="images/contact-keyboard.png" alt="Contact Me" class="contact-hero-img">
+
+        <h1>Let's Connect</h1>
+        
+        <p class="briefing">
+            As a Mechatronics Engineering student, I am actively seeking <span class="highlight">internships</span>, <span class="highlight">working opportunities</span>, and <span class="highlight">professional mentorship</span>. 
+            <br><br>
+            I am always eager to discuss engineering challenges, receive advice from industry veterans, or collaborate on innovative projects. My inbox is always open!
+        </p>
+
+        <div class="button-container">
+            <!-- 🟢 EDIT YOUR EMAIL ADDRESS HERE 🟢 -->
+            <!-- The 'mailto:' tells the computer to open their email app -->
+            <a href="mailto:eng.saudehabaldawi" class="contact-btn email-btn">
+                ✉️ Send an Email
+            </a>
+
+            <!-- 🟢 EDIT YOUR WHATSAPP NUMBER HERE 🟢 -->
+            <!-- Remove the + and any spaces/dashes. Just the country code and number. Example: 966501234567 -->
+            <a href="https://wa.me/+601119930071" target="_blank" class="contact-btn wa-btn">
+                💬 WhatsApp Me
+            </a>
+        </div>
+        <!-- 🟢 EDIT YOUR WRITTEN CONTACT INFO HERE 🟢 -->
+    <div class="direct-contact-info">
+        <p><strong>Email:</strong> Eng.SaudEhabAldawi@gmail.com</p>
+        <p><strong>Phone:</strong> +60 11 1993 0071</p>
+    </div>
+
+    </main>
+
+</body>
+</html>

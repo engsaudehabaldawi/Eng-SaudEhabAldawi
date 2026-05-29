@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eng. Saudehabaldawi | Portfolio Hub</title>
+    <style>
+        /* CSS Reset & Blended Variables (Cyber-Navy) */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            /* Mixed Theme: Deep Navy-Purple Base */
+            --bg-color: #1a1a2e;       
+            --surface-color: #16213e;   
+            --text-primary: #eaeaea;
+            --text-secondary: #c0c0c0;
+            
+            /* Blended Accents: Cyan to Violet-Magenta */
+            --accent-start: #00d2ff;   
+            --accent-end: #ff00c8;     
+            --accent-gradient: linear-gradient(45deg, var(--accent-start), var(--accent-end));
+            --surface-border: #333;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            background-color: var(--surface-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--surface-border);
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            color: var(--text-primary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .logo strong {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            margin-left: 2rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-start);
+        }
+
+        /* Landing Hub */
+        .hero-hub {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem 5%;
+            text-align: center;
+        }
+
+        .hero-hub h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .hero-hub p {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 4rem;
+            max-width: 700px;
+        }
+
+        /* Three Large Squares */
+        .hub-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            width: 100%;
+            max-width: 1200px;
+            flex-wrap: wrap; 
+        }
+
+        .hub-square {
+            position: relative; 
+            flex: 1 1 calc(33.333% - 2rem); 
+            min-width: 280px; 
+            aspect-ratio: 1 / 1; 
+            overflow: hidden; 
+            border-radius: 12px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            transition: transform 0.3s, box-shadow 0.3s, border 0.3s;
+            cursor: pointer;
+            text-decoration: none; 
+            border: 2px solid transparent;
+            background-color: var(--surface-color); /* Fallback color if no image */
+        }
+
+        .hub-square:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+            border-image: var(--accent-gradient) 1; 
+        }
+
+        /* Images inside squares */
+        .hub-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            display: block;
+            transition: transform 0.5s ease-in-out;
+            /* Gray background for empty placeholders */
+            background-color: #2a2a40; 
+        }
+
+        .hub-square:hover .hub-image {
+            transform: scale(1.1); 
+        }
+
+        /* Text overlay on images */
+        .hub-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 50%; 
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            padding: 3rem 1.5rem 1.5rem 1.5rem;
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            z-index: 5;
+        }
+
+        .hub-overlay h2 {
+            font-size: 1.8rem;
+            margin: 0;
+            padding: 0;
+            border: none;
+            color: white;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        /* Detail Sections */
+        section.detail {
+            padding: 6rem 5%;
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--surface-border);
+        }
+
+        h2.section-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: block;
+        }
+
+        .section-content {
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            background-color: var(--bg-color); 
+            padding: 4rem 5%;
+            border-top: 1px solid var(--surface-border);
+        }
+
+        .contact p { 
+            color: var(--text-secondary); 
+            margin-bottom: 2rem; 
+        }
+
+        .contact-btn {
+            display: inline-block; 
+            padding: 0.8rem 2rem;
+            background-color: transparent;
+            color: var(--text-primary);
+            border-radius: 4px; 
+            text-decoration: none; 
+            font-weight: bold;
+            transition: all 0.3s;
+            border: 2px solid var(--accent-start);
+        }
+
+        .contact-btn:hover {
+            background: var(--accent-gradient);
+            color: white;
+            border-color: transparent;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid #333;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .hero-hub h1 { font-size: 2.5rem; }
+            .hub-square { flex: 1 1 calc(50% - 1rem); } 
+        }
+        @media (max-width: 480px) {
+            .hub-square { flex: 1 1 100%; } 
+            nav { flex-direction: column; gap: 1rem; }
+            nav a { margin-left: 0; margin: 0 0.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo"><strong>Eng. Saudehabaldawi</strong></div>
+        <div class="links">
+            <a href="#about">About</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Landing Hub -->
+    <header class="hero-hub">
+        <h1>Eng. Saudehabaldawi</h1>
+        <p>Engineering Portolio & Project Hub</p>
+        
+        <div class="hub-container">
+            
+            <!-- Square 1: About -->
+            <a href="#about" class="hub-square">
+                <!-- Change the src below to your profile image path -->
+                <img src="images/saudehabaldawi_profile.jpg" alt="About Me" class="hub-image">
+                <div class="hub-overlay">
+                    <h2>About Me</h2>
+                </div>
+            </a>
+
+            <!-- Square 2: Projects -->
+            <a href="#projects" class="hub-square">
+                <!-- Change the src below to your project image path -->
+                <img src="images/engineering_projects_cover.jpg" alt="My Projects" class="hub-image">
+                <div class="hub-overlay">
+                    <h2>My Projects</h2>
+                </div>
+            </a>
+
+            <!-- Square 3: Contact -->
+            <a href="#contact" class="hub-square">
+                <!-- Change the src below to your contact image path -->
+                <img src="images/contact_me_photo.jpg" alt="Contact & CV" class="hub-image">
+                <div class="hub-overlay">
+                    <h2>Contact & CV</h2>
+                </div>
+            </a>
+
+        </div>
+    </header>
+
+    <!-- Detailed Sections -->
+    <section id="about" class="detail">
+        <h2 class="section-title">About Me</h2>
+        <div class="section-content">
+            <p>Welcome to my professional portfolio. I am an engineer focused on building efficient, scalable, and innovative systems. This section will contain your full biography, educational background, and core skills.</p>
+        </div>
+    </section>
+
+    <section id="projects" class="detail" style="background-color: var(--bg-color);">
+        <h2 class="section-title">My Projects</h2>
+        <div class="section-content">
+            <p>Here you will showcase the details of your technical work, including code repositories, engineering diagrams, and project outcomes.</p>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <p>I am always open to discussing new projects, creative ideas, or opportunities to be part of your visions.</p>
+        <a href="mailto:eng.saudehabaldawi@example.com" class="contact-btn">Email Me</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Eng. Saudehabaldawi. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
